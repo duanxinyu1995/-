@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "sort.h"
-void bubblesort(int k[], int n)
+void b`ubblesort(int k[], int n)
 {
 	int flag=0;
 	for(int i=0;i<n-1;i++)
