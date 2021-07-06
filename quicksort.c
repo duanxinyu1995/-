@@ -14,7 +14,7 @@ void quicksort(int k[], int s, int t)
 		while(1){
 			do i++;
 			while(!(k[s]<=k[i] || i==t));
-			do j--;
+	 		do j--;
 			while(!(k[s]>=k[j] || j==s));
 			if(i<j)
 				swap(k[i], k[j]);
