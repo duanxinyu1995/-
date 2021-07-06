@@ -13,7 +13,21 @@ char * reverse_str(char *s)
 	ret[len]='\0';
 	return ret;
 }
-
+void inverted_order(char *s)
+{
+	char *q, *p, temp;
+	int len= strlen(s);
+	p= s;
+	q= s+len-1;
+	while(q-p>0)
+	{
+		temp=*p;
+		*p=*q;
+		*q=temp;
+		p++;
+		q--;
+	}
+}
 int main()
 {
 	char *ret;
@@ -34,5 +48,7 @@ int main()
 	s[count]='\0';
 	ret=reverse_str(s);
 	printf("the reversed strings is :\n %s\n", ret);
+	inverted_order(ret);
+	printf("the inverted_order is :\n %s \n", ret);
 	return 0;
 }
