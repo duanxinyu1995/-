@@ -4,11 +4,21 @@
 int bs_save_convert(int n)
 {
 	int result = 0;
-	int size= sizeof(input);
+	int size= sizeof(n);
 	while(size--)
 	{
-		result |= ((input &oxFF) << (size*8));
-		inut>>=8;
+		result |= ((n&0xFF) << (size*8));
+		n>>=8;
 	}
 	return result;
+}
+
+
+int main(){
+	int num , num1;
+	printf("Enter the number you want convert:\n");
+	scanf("%d", &num);
+	num1= bs_save_convert(num);
+	printf("%d  converted to :\n%d\n", num, num1);
+       return 0;	
 }
