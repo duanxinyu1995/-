@@ -1,27 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "sort.h"
-void bubblesort(int *k, int n)
-{
-	int flag=0, temp;
-	for(int i=0;i<n-1;i++)
-	{
-		flag=0;
-		for(int j=0;j<n-i-1;j++)
-		{
-			if(k[j]>k[j+1])
-			{
-				temp=k[j+1];
-				k[j+1]=k[j];
-				k[j]=temp;
-				flag=1;
-			}
-		}
-		if(flag==0)
-			break;
-	}
-}
+
+
 void quicksort(int *num, int i, int j){
+	if(i<j){
 	int left, right, base, temp;
 	left= i;
 	right=j;
@@ -29,23 +11,20 @@ void quicksort(int *num, int i, int j){
 	while(left<right){
 		while(num[right]>base&&left<right)
 			right--;
+		if(left<right)
+			num[left++]=num[right];
 		while(num[left]<=base&&left<right)
 			left++;
 		if(right>left)
-		{
-			temp=num[right];
-			num[right]=num[left];
-			num[left]=temp;
-		}
-	
+			num[right--]=num[left];
 	}
-	num[i]=num[left];
 	num[left]=base;
 	quicksort(num, i, left-1);
 	quicksort(num, left+1, j);
+	}
 }
-int main()
-{	
+
+int main(){
 	int *nums=(int *)malloc(sizeof(int));
 	int count=0, num;
 	char s;
@@ -59,22 +38,15 @@ int main()
 		if(s=='\n')
 			break;
 	}
-	printf("the list you entered is:\n");
-	for(int i=0;i<count;i++)
+	printf("the input is :\n");
+	for(int i=0; i<count; i++)
 	{
-		printf("%d", nums[i]);
+		printf("%d ", nums[i]);
 	}
-	bubblesort(nums, count);
+	quicksort(nums, 0, count-1);
 	printf("sorted list is as follow:\n");
 	for(int i=0;i<count;i++)
 	{
-		printf("%d", nums[i]);
+		printf("%d ", nums[i]);
 	}
-	printf("\n");
-	quicksort(nums, 0, count-1);
-	printf("the quicksorted list:\n");
-	for(int i=0;i<count;i++)
-		printf("%d", nums[i]);
-	printf("\n");
-
 }

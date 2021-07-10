@@ -22,7 +22,7 @@ void quicksort(int k[], int s, int t)
 				break;
 		}
 		swap(k[s], k[j]);
-		quick(k, s, j-1);
-		quick(k, j+1, t);
+		quicksort(k, s, j-1);
+		quicksort(k, j+1, t);
 	}
 }

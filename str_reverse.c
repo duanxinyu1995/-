@@ -31,7 +31,7 @@ void inverted_order(char *s)
 int main()
 {
 	char *ret;
-	char *s=(char*)malloc(sizeof(char));
+	char *s= (char *)malloc(sizeof(char));
 	int count=0;
 	char str;
 	printf("please enter the strings before reversing:\n");
@@ -40,11 +40,11 @@ int main()
 		if(str=='\n')
 			break;
 		count ++;
-		s=(char*)realloc(s, count*sizeof(char));
+		s=(char *)realloc(s, count*sizeof(char));
 		s[count-1]=str;
 		}
-	
-	s=(char*)realloc(s, (count+1)*sizeof(char));
+	count++;
+	s= (char *)realloc(s, count*sizeof(char));
 	s[count]='\0';
 	ret=reverse_str(s);
 	printf("the reversed strings is :\n %s\n", ret);
