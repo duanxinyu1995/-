@@ -1,49 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "sort.h"
-void bubblesort(int *k, int n)
-{
-	int flag=0, temp;
-	for(int i=0;i<n-1;i++)
-	{
-		flag=0;
-		for(int j=0;j<n-i-1;j++)
-		{
-			if(k[j]>k[j+1])
-			{
-				temp=k[j+1];
-				k[j+1]=k[j];
-				k[j]=temp;
-				flag=1;
-			}
-		}
-		if(flag==0)
-			break;
-	}
-}
-void quicksort(int *num, int i, int j){
-	int left, right, base, temp;
-	left= i;
-	right=j;
-	base=num[i];
-	while(left<right){
-		while(num[right]>base&&left<right)
-			right--;
-		while(num[left]<=base&&left<right)
-			left++;
-		if(right>left)
-		{
-			temp=num[right];
-			num[right]=num[left];
-			num[left]=temp;
-		}
-	
-	}
-	num[i]=num[left];
-	num[left]=base;
-	quicksort(num, i, left-1);
-	quicksort(num, left+1, j);
-}
 int main()
 {	
 	int *nums=(int *)malloc(sizeof(int));
